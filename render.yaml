@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: kuppanna-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      - key: UBER_CLIENT_ID
+        sync: false
+      - key: UBER_CLIENT_SECRET
+        sync: false
+      - key: UBER_CUSTOMER_ID
+        sync: false
+      - key: UBER_TOKEN_URL
+        sync: false
+      - key: UBER_API_BASE
+        sync: false
+      - key: DATABASE_PATH
+        value: /tmp/kuppanna.sqlite

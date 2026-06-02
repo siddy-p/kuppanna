@@ -1,0 +1,29 @@
+# Backend
+backend/node_modules/
+backend/kuppanna.sqlite
+backend/kuppanna.sqlite-shm
+backend/kuppanna.sqlite-wal
+backend/.env
+*.sqlite
+
+# macOS
+.DS_Store
+
+# Flutter / Dart
+kuppanna_app/.dart_tool/
+kuppanna_app/build/
+kuppanna_app/.flutter-plugins
+kuppanna_app/.flutter-plugins-dependencies
+kuppanna_app/pubspec.lock
+
+# iOS
+kuppanna_app/ios/Pods/
+kuppanna_app/ios/.symlinks/
+kuppanna_app/ios/Flutter/Generated.xcconfig
+kuppanna_app/ios/Flutter/flutter_export_environment.sh
+kuppanna_app/ios/Flutter/Flutter.podspec
+
+# Android
+kuppanna_app/android/.gradle/
+kuppanna_app/android/local.properties
+kuppanna_app/android/key.properties
