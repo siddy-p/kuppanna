@@ -1,22 +1,20 @@
 /// Network configuration for the Kuppanna app.
 ///
-/// Switch between modes using --dart-define at launch:
-///   flutter run --dart-define=USE_NGROK=true
-///
-/// Edit [ngrokBaseUrl] to your active ngrok tunnel URL each session.
-/// Edit [localIpBaseUrl] to your machine's local IP if using LAN mode.
+/// The backend is now permanently hosted on Render.
+/// No more ngrok or local IP needed!
 class AppConfig {
   AppConfig._();
 
-  /// Set via --dart-define=USE_NGROK=true at launch (defaults to true for Xcode convenience)
-  static const bool useNgrok = bool.fromEnvironment('USE_NGROK', defaultValue: true);
+  /// Production backend on Render — always available, no setup needed
+  static const String renderBaseUrl = 'https://kuppanna-backend.onrender.com';
 
-  /// Your active ngrok tunnel URL (static domain — no need to update each session)
-  static const String ngrokBaseUrl = 'https://swoop-subsiding-treading.ngrok-free.dev';
-
-  /// Your machine's local IP (run `ipconfig getifaddr en0` on Mac)
+  /// Your machine's local IP (only used during local development)
+  /// Run `ipconfig getifaddr en0` on Mac to get your IP
   static const String localIpBaseUrl = 'http://192.168.1.39:3000';
 
-  /// Resolved base URL — used by ApiService
-  static String get baseUrl => useNgrok ? ngrokBaseUrl : localIpBaseUrl;
+  /// Set via --dart-define=USE_LOCAL=true to use local backend instead
+  static const bool useLocal = bool.fromEnvironment('USE_LOCAL', defaultValue: false);
+
+  /// Resolved base URL — uses Render by default, local only if USE_LOCAL=true
+  static String get baseUrl => useLocal ? localIpBaseUrl : renderBaseUrl;
 }
